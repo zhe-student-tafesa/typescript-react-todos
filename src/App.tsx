@@ -9,17 +9,31 @@ const App: React.FC = () => {
   // type of todo: <string>, value is     ""
   const [todo, setTodo] = useState<string>("");
   // for debug
-  console.log(todo);
+  //console.log(todo);
 
   const [todos, setTodos] = useState<Todo[]>([]);
-  const handleAdd = () => { };
+  const handleAdd = (e: React.FormEvent) => {
+    //e without type:
+    // error: Parameter 'e' implicitly has an 'any' type.
+    // google search: event type in react typescript
+    e.preventDefault();
+    if (todo) {
+      //??
+      setTodos([...todos, { id: Date.now(), todo: todo, isDone: false }]);
+      //??   //??  
+      setTodo("");
+
+    }
+
+  };
+  // for debug
+  console.log(todos);
 
   // 使用 InputField 组件
   return (
     <div className="App">
       <span className="heading">Taskify</span>
-      <InputField todo={todo} setTodo={setTodo} handleAdd={function (): void {
-      }} />
+      <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
     </div>
   );
 }
