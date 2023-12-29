@@ -4,6 +4,7 @@ import './App.css';
 
 import InputField from './components/InputField';
 import { Todo } from './model';
+import TodoList from './components/TodoList';
 // 返回值类型 ：JSX.Element
 const App: React.FC = () => {
   // type of todo: <string>, value is     ""
@@ -34,6 +35,7 @@ const App: React.FC = () => {
     <div className="App">
       <span className="heading">Taskify</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 }

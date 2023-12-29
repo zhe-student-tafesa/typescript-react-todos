@@ -7,6 +7,7 @@ interface Props {
     setTodo: React.Dispatch<React.SetStateAction<string>>;
     handleAdd: (e: React.FormEvent) => void;
 };
+//  这样 使用                                    : Props
 const InputField = ({ todo, setTodo, handleAdd }: Props) => {
 
     const inputRef = useRef<HTMLInputElement>(null);
