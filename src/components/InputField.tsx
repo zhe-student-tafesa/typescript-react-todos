@@ -1,5 +1,5 @@
 // rafce
-import React from 'react'
+import React, { useRef } from 'react'
 import "./styles.css"
 // 定义InputField 组件，添加属性及  属性类型
 interface Props {
@@ -8,8 +8,16 @@ interface Props {
     handleAdd: (e: React.FormEvent) => void;
 };
 const InputField = ({ todo, setTodo, handleAdd }: Props) => {
-    return <form action="" className="input" onSubmit={handleAdd}>
-        <input type="input" placeholder="Enter a Task"
+
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    return <form action="" className="input" onSubmit={(e) => {
+        handleAdd(e);
+        inputRef.current?.blur();
+    }}>
+        <input
+            ref={inputRef}
+            type="input" placeholder="Enter a Task"
             className="input__box"
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
