@@ -1,6 +1,6 @@
 // rafce
 import React, { useRef } from 'react'
-import "./styles.css"
+import "./styles.css";
 // 定义InputField 组件，添加属性及  属性类型
 interface Props {
     todo: string;
