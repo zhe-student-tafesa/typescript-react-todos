@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+.App {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2f74c0;
+    font-family: "Neucha", cursive;
+}
+
+
+
+.heading {
+    text-transform: uppercase;
+    font-size: 40px;
+    margin: 30px 0;
+    color: white;
+    z-index: 1;
+    text-align: center;
+}
+
+/* 这段CSS代码使用了媒体查询（media query），它的作用是在特定条件下应用样式。具体来说，这段代码的意思是：
+当屏幕宽度不超过800像素时，应用以下样式规则：
+.heading 类的元素将具有以下样式：
+margin 属性设置为 15px 顶部和底部的边距，而左右边距保持默认（0）。
+font-size 属性设置为 35px，即字体的大小为35像素。
+因此，当屏幕宽度小于或等于800像素时，.heading 类的元素将具有更大的字体和顶部底部边距，
+这可能有助于在较小的屏幕上提高可读性或调整布局。这种技术通常用于响应式设计，以确保网页在不同设备和屏幕尺寸上都能够良好显示。 */
+@media (max-width: 800px) {
+    .heading {
+        margin: 15px 0;
+        font-size: 35px;
+    }
+}
