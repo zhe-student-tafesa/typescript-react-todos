@@ -7,6 +7,9 @@ import { Todo } from './model';
 import TodoList from './components/TodoList';
 // 返回值类型 ：JSX.Element
 const App: React.FC = () => {
+  // 这一行代码使用了React的useState hook。它的目的是在React函数组件中声明一个状态变量todo，并提供一个用于更新该状态的函数setTodo。
+  // useState的参数是状态的初始值的类型，这里是string，并且初始值是一个空字符串""。
+  // 这行代码相当于在类组件中使用this.state = { todo: "" }，但是使用hook的方式更加简洁。
   // type of todo: <string>, value is     ""
   const [todo, setTodo] = useState<string>("");
   // for debug

@@ -88,6 +88,7 @@
     cursor: pointer;
 }
 
+/* 写 同一个对象的media时， 必须把大的写在上部，小的写在下部 */
 /* 小于 1200时 todo single 占100% */
 @media (max-width: 1200px) {
 
