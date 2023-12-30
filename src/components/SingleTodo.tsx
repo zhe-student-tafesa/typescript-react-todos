@@ -30,8 +30,17 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     // => 是箭头函数的语法
     // 箭头函数的优势之一是它自动绑定了 this
     const handleDone = (id: number) => {
+        // setTodos(
+        //     todos.map((todo) => todo.id === id ? { ...todo, isDone: !todo.isDone } : todo)
+        // );
         setTodos(
-            todos.map((todo) => todo.id === id ? { ...todo, isDone: !todo.isDone } : todo)
+            todos.map((todo) => {
+                if (todo.id === id) {
+                    return { ...todo, isDone: !todo.isDone };
+                } else {
+                    return todo;
+                }
+            })
         );
 
     };
