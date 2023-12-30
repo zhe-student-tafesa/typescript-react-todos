@@ -1,5 +1,5 @@
 // https://react-icons.github.io/react-icons/
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Todo } from '../model';
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
@@ -51,10 +51,21 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
 
     };
 
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    // 当 edit 变化时，input 获得 焦点
+    // 这段代码使用了useEffect，当edit发生变化时，
+    // 它会调用inputRef.current?.focus()。这意味着如果edit为true，
+    // 则尝试将焦点聚焦到inputRef引用的HTMLInputElement上。
+    useEffect(() => {
+        inputRef.current?.focus();
+    }, [edit]);
+
     return <form className="todos__single" onSubmit={(e) => handleEdit(e, todo.id)}>
         {
             edit ?
                 (<input
+                    ref={inputRef}
                     value={editTodo}
                     onChange={(e) => setEditTodo(e.target.value)}
                     className='todos__single--text'
